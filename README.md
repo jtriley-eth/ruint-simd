@@ -37,9 +37,9 @@ def carry(x, y):
 
 def overflowing_add(x, y):
     return [
-        simd_add(simd_add(x[0], y[0]), ,
-        simd_add(x[1], y[1]),
-        simd_add(x[2], y[2]),
-        simd_add(x[3], y[3]),
+        simd_add(x[0], y[0]),
+        simd_add(simd_add(x[1], y[1]), carry(x[0], y[0])),
+        simd_add(simd_add(x[2], y[2]), carry(x[1], y[1])),
+        simd_add(simd_add(x[3], y[3]), carry(x[2], y[2])),
     ]
 ```
